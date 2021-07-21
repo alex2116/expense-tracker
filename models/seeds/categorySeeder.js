@@ -1,11 +1,11 @@
-const Category = require('../category')
+const Category = require('../category')  //使用categorySchema
 
-const CategoryList = require('./record.json')
+const {categorySeeds} = require('./category.json')  //使用record.json
 
-const db = require('../../config/mongoose')
+const db = require('../../config/mongoose') //使用mongoose
 
 db.once('open', () => {
-  Category.create(CategoryList.categories)
+  Category.create(categorySeeds)
     .then(() => {
       console.log('Category Done')
       return db.close()

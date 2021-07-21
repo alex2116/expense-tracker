@@ -1,61 +1,40 @@
 {
-  "results": [
+  "recordSeeds": [
     {
-      "name": "租金",
-      "category": "home",
-      "date": "2021-05-10",
-      "amount": "25000",
+      "name": "expense-1",
+      "category": "household",
+      "date": "2021-06-19",
+      "amount": 100
     },
     {
-      "name": "捷運",
-      "category": "transportation",
-      "date": "2021-05-10",
-      "amount": "120",
+      "name": "expense-2",
+      "category": "transport",
+      "date": "2021-06-19",
+      "amount": 20
     },
     {
-      "name": "電影",
-      "category": "amusement",
-      "date": "2021-05-11",
-      "amount": "220",
+      "name": "expense-transport",
+      "category": "transport",
+      "date": "2021-06-19",
+      "amount": 20
     },
     {
-      "name": "晚餐",
-      "category": "food",
-      "date": "2021-05-11",
-      "amount": "120",
+      "name": "expense-3",
+      "category": "entertainment",
+      "date": "2021-06-19",
+      "amount": 200
     },
     {
-      "name": "其他",
-      "category": "other",
-      "date": "2021-05-11",
-      "amount": "60",
-    }
-  ],
-  "categories": [
-    {
-      "category": "home",
-      "category_cn": "家居物業",
-      "icon": "fas fa-home"
+      "name": "expense-4",
+      "category": "meal",
+      "date": "2021-06-19",
+      "amount": 230
     },
     {
-      "category": "transportation",
-      "category_cn": "交通出行",
-      "icon": "fas fa-shuttle-van"
-    },
-    {
-      "category": "amusement",
-      "category_cn": "休閒娛樂",
-      "icon": "fas fa-grin-beam"
-    },
-    {
-      "category": "food",
-      "category_cn": "餐飲食品",
-      "icon": "fas fa-utensils"
-    },
-    {
-      "category": "other",
-      "category_cn": "其他",
-      "icon": "fas fa-pen"
+      "name": "expense-4",
+      "category": "others",
+      "date": "2021-06-19",
+      "amount": 10
     }
   ]
 }

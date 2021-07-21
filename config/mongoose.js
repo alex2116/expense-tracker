@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose') //使用mongoose
 
 mongoose.connect('mongodb://localhost/expense-tracker', { useNewUrlParser: true, useUnifiedTopology: true })
 
@@ -12,4 +12,4 @@ db.once('open', () => {
   console.log('mongodb connected')
 })
 
-module.exports = db
+module.exports = db //匯出
