@@ -4,6 +4,8 @@ const exphbs = require('express-handlebars')
 const app = express()
 const port = 3000
 
+const Record = require('../../models/record')
+
 require('./config/mongoose')
 
 app.engine('handlebars', exphbs({

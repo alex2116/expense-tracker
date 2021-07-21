@@ -1,0 +1,61 @@
+{
+  "results": [
+    {
+      "name": "租金",
+      "category": "home",
+      "date": "2021-05-10",
+      "amount": "25000",
+    },
+    {
+      "name": "捷運",
+      "category": "transportation",
+      "date": "2021-05-10",
+      "amount": "120",
+    },
+    {
+      "name": "電影",
+      "category": "amusement",
+      "date": "2021-05-11",
+      "amount": "220",
+    },
+    {
+      "name": "晚餐",
+      "category": "food",
+      "date": "2021-05-11",
+      "amount": "120",
+    },
+    {
+      "name": "其他",
+      "category": "other",
+      "date": "2021-05-11",
+      "amount": "60",
+    }
+  ],
+  "categories": [
+    {
+      "category": "home",
+      "category_cn": "家居物業",
+      "icon": "fas fa-home"
+    },
+    {
+      "category": "transportation",
+      "category_cn": "交通出行",
+      "icon": "fas fa-shuttle-van"
+    },
+    {
+      "category": "amusement",
+      "category_cn": "休閒娛樂",
+      "icon": "fas fa-grin-beam"
+    },
+    {
+      "category": "food",
+      "category_cn": "餐飲食品",
+      "icon": "fas fa-utensils"
+    },
+    {
+      "category": "other",
+      "category_cn": "其他",
+      "icon": "fas fa-pen"
+    }
+  ]
+}
