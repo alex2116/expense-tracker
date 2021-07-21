@@ -11,10 +11,18 @@ app.engine('handlebars', exphbs({
 }))
 
 app.set('view engine', 'handlebars')
-app.use(express.urlencoded({ extended: true}))
+app.use(express.urlencoded({ extended: true }))
 
 app.get('/', (req, res) => {
   res.render('index')
+})
+
+app.get('/record/edit', (req,res) => {
+  res.render('edit')
+})
+
+app.get('/record/new', (req, res) => {
+  res.render('new')
 })
 
 app.listen(port, () => {
