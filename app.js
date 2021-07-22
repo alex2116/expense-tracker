@@ -36,7 +36,7 @@ app.get('/', (req, res) => {
 
 app.get('/filter/:category', (req, res) => {
   const category = req.params.category
-  return Record.find({category: category}) 
+  return Record.find({ category: category })
     .lean()
     .then(records => {
       Category.find()
@@ -52,13 +52,23 @@ app.get('/filter/:category', (req, res) => {
     })
 })
 
-
 app.get('/record/edit', (req, res) => {
   res.render('edit')
 })
 
 app.get('/record/new', (req, res) => {
   res.render('new')
+})
+
+app.post('/record/new', (req, res) => {
+  const name = req.body.name
+  const category = req.body.category
+  const date = req.body.date
+  const amount = req.body.amount
+
+  return Record.create({ name, category, date, amount })
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
 })
 
 app.listen(port, () => {
