@@ -8,6 +8,8 @@ const port = 3000
 const Record = require('./models/record')
 const Category = require('./models/category')
 const categoryData = require('./models/seeds/category.json')
+const methodOverride = require('method-override')
+
 
 require('./config/mongoose')
 
@@ -17,6 +19,7 @@ app.engine('handlebars', exphbs({
 
 app.set('view engine', 'handlebars')
 app.use(express.urlencoded({ extended: true }))
+app.use(methodOverride('_method'))
 
 app.get('/', (req, res) => {
   Record.find()
@@ -73,7 +76,7 @@ app.post('/record/new', (req, res) => {
     .catch(error => console.log(error))
 })
 
-app.post('/record/:id/edit', (req, res) => {
+app.put('/record/:id', (req, res) => {
   const id = req.params.id
 
   return Record.findById(id)
@@ -85,7 +88,7 @@ app.post('/record/:id/edit', (req, res) => {
     .catch(error => console.log(error))
 })
 
-app.post('/record/:id/delete', (req, res) => {
+app.delete('/record/:id', (req, res) => {
   const id = req.params.id
 
   return Record.findById(id)
