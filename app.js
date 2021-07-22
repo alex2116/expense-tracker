@@ -23,13 +23,22 @@ app.get('/', (req, res) => {
     .then(records => {
       Category.find()
         .lean()
-        .then(category => {
-          const totalAmount = getTotalAmount(records).toLocaleString()
-          res.render('index', { records, totalAmont, category })
+        .then(categories => {
+          const totalAmount = getTotalAmount(records)
+          records.forEach(record => {
+            record.iconClass = getIconClassName(record.category, categories)
+            console.log(record.iconClass)
+          })
+          res.render('index', { records, totalAmount, categories })
         })
         .catch(error => console.log(error))
     })
 })
+
+function getIconClassName(recordCategory, categories) {
+  const categoryOfRecord = categories.find(category => category.category === recordCategory)
+  return categoryOfRecord.icon
+}
 
 app.get('/record/edit', (req,res) => {
   res.render('edit')
@@ -44,9 +53,7 @@ app.listen(port, () => {
 })
 
 function getTotalAmount(records) { //設計加總function 供路由使用
-  let sum = 0
-  records.foreach((record) => {
-    sum += record.amount
-  })
-  return sum
+  const amounts = records.map(record => Number(record.amount))
+  return amounts.reduce((sum, current) => sum + current, 0)
 }
+
