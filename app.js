@@ -85,6 +85,15 @@ app.post('/record/:id/edit', (req, res) => {
     .catch(error => console.log(error))
 })
 
+app.post('/record/:id/delete', (req, res) => {
+  const id = req.params.id
+
+  return Record.findById(id)
+    .then(record => record.remove())
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
+})
+
 app.listen(port, () => {
   console.log(`Express is listening on localhost: ${port}`)
 })
