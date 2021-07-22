@@ -1,19 +1,19 @@
 <div class="container">
 
-  <div class="dropdown mt-5 col-9" style="width: 100%;">
+  <div class="dropdown mt-5 col-10" style="width: 76%;">
     <button class="btn btn-outline-info dropdown-toggle ml-3" type="button" id="dropdownMenuButton"
       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 100%;">
       類別
     </button>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="width: 94%;">
       {{#each categories}}
-      <li><a class="dropdown-item" href="/{{ this.category }}">{{ this.category_cn }}</a></li>
+      <li><a class="dropdown-item" href="/filter/{{ this.category }}">{{ this.category_cn }}</a></li>
       {{/each}}
     </ul>
   </div>
   <div class="m-2 mt-4 col-10">
-    <div>總金額</div>
-    <div style="text-align: end; display: flex; flex-direction: column; margin-right: 40px;">
+    <div>總支出</div>
+    <div style="text-align: end; display: flex; flex-direction: column; margin-right: 32px;">
       <h1>${{ totalAmount }}</h1>              
     </div>    
   </div>

@@ -27,7 +27,6 @@ app.get('/', (req, res) => {
           const totalAmount = getTotalAmount(records)
           records.forEach(record => {
             record.iconClass = getIconClassName(record.category, categories)
-            console.log(record.iconClass)
           })
           res.render('index', { records, totalAmount, categories })
         })
@@ -35,12 +34,26 @@ app.get('/', (req, res) => {
     })
 })
 
-function getIconClassName(recordCategory, categories) {
-  const categoryOfRecord = categories.find(category => category.category === recordCategory)
-  return categoryOfRecord.icon
-}
+app.get('/filter/:category', (req, res) => {
+  const category = req.params.category
+  return Record.find({category: category}) 
+    .lean()
+    .then(records => {
+      Category.find()
+        .lean()
+        .then(categories => {
+          const totalAmount = getTotalAmount(records)
+          records.forEach(record => {
+            record.iconClass = getIconClassName(record.category, categories)
+          })
+          res.render('index', { records, totalAmount, categories })
+        })
+        .catch(error => console.log(error))
+    })
+})
 
-app.get('/record/edit', (req,res) => {
+
+app.get('/record/edit', (req, res) => {
   res.render('edit')
 })
 
@@ -57,3 +70,7 @@ function getTotalAmount(records) { //設計加總function 供路由使用
   return amounts.reduce((sum, current) => sum + current, 0)
 }
 
+function getIconClassName(recordCategory, categories) {
+  const categoryOfRecord = categories.find(category => category.category === recordCategory)
+  return categoryOfRecord.icon
+}
