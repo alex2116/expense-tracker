@@ -1,17 +1,18 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
-
+const handlebarsHelpers = require('handlebars-helpers')
+const helpers = handlebarsHelpers()
 const app = express()
 const port = 3000
 
 const Record = require('./models/record')
 const Category = require('./models/category')
-const category = require('./models/category')
+const categoryData = require('./models/seeds/category.json')
 
 require('./config/mongoose')
 
 app.engine('handlebars', exphbs({
-  defaultLayout:'main'
+  defaultLayout: 'main', helpers: helpers
 }))
 
 app.set('view engine', 'handlebars')
@@ -52,8 +53,12 @@ app.get('/filter/:category', (req, res) => {
     })
 })
 
-app.get('/record/edit', (req, res) => {
-  res.render('edit')
+app.get('/record/:id/edit', (req, res) => {
+  const id = req.params.id
+  return Record.findById(id)
+    .lean()
+    .then(record => res.render('edit', { record, categories: categoryData.categorySeeds }))
+    .catch(error => console.log(error))    
 })
 
 app.get('/record/new', (req, res) => {
@@ -61,12 +66,21 @@ app.get('/record/new', (req, res) => {
 })
 
 app.post('/record/new', (req, res) => {
-  const name = req.body.name
-  const category = req.body.category
-  const date = req.body.date
-  const amount = req.body.amount
+  const { name, category, date, amount } = req.body
 
   return Record.create({ name, category, date, amount })
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
+})
+
+app.post('/record/:id/edit', (req, res) => {
+  const id = req.params.id
+
+  return Record.findById(id)
+    .then(record => {
+      record = Object.assign(record, req.body)
+      return record.save()
+    })
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
@@ -84,3 +98,4 @@ function getIconClassName(recordCategory, categories) {
   const categoryOfRecord = categories.find(category => category.category === recordCategory)
   return categoryOfRecord.icon
 }
+

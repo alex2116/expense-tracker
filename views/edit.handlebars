@@ -1,5 +1,5 @@
 <div class="container">
-  <form action="">
+  <form action="/record/{{record._id}}/edit" method="POST">
     <div class="row align-items-center">
       <h6 class="col-3 ml-3">*必填欄位</h6>
       <h2 class="col-8 ml-4">請輸入你的支出</h2>
@@ -9,33 +9,30 @@
         <div class="input-group-prepend col-2">
           <div class="mt-1">名稱*：</div>
         </div>
-        <input type="text" class="form-control col-8" placeholder="名稱" aria-label="Username" aria-describedby="basic-addon1">
+        <input type="text" class="form-control col-8" aria-label="Username" name="name" aria-describedby="basic-addon1" value="{{record.name}}" required>
       </div>
       <div class="input-group mt-4">
         <div class="input-group-prepend col-2">
           <div class="mt-1" type="date">日期*：</div>
         </div>
-        <input type="date" class="form-control col-8" aria-label="Username" aria-describedby="basic-addon1">
+        <input type="date" class="form-control col-8" aria-label="Username" name="date" aria-describedby="basic-addon1" value="{{record.date}}" required>
       </div>
       <div class="input-group mt-4">
         <div class="input-group-prepend col-2">
           <div class="mt-1">類別*：</div>
         </div>
-        <select class="custom-select col-8" id="inputGroupSelect01">
-          <option selected>類別</option>
-          <option value="1">家居物業</option>
-          <option value="2">交通出行</option>
-          <option value="3">休閒娛樂</option>
-          <option value="4">餐飲食品</option>
-          <option value="5">其他</option>
+        <select class="custom-select col-8" id="inputGroupSelect01" name="category" required>
+          {{#each categories}}
+          <option value='{{this.category}}' {{#compare this.category '==' ../record.category}} selected {{/compare}}>{{this.category_cn}}
+          </option>
+          {{/each}}
         </select>
       </div>
       <div class="input-group mt-4">
         <div class="input-group-prepend col-2">
           <div class="mt-1">金額*：</div>
         </div>
-        <input type="text" class="form-control col-8" placeholder="金額" aria-label="Username"
-          aria-describedby="basic-addon1">
+        <input type="number" class="form-control col-8" placeholder="金額" aria-label="Username" name="amount" aria-describedby="basic-addon1" value="{{record.amount}}" required>
       </div>
     </div>
     <div class="mt-4"style="text-align: center; text-align: end">

@@ -10,19 +10,19 @@
           <div class="mt-1">名稱*：</div>
         </div>
         <input type="text" class="form-control col-8" placeholder="名稱" name="name" aria-label="Username"
-          aria-describedby="basic-addon1">
+          aria-describedby="basic-addon1" required>
       </div>
       <div class="input-group mt-4">
         <div class="input-group-prepend col-2">
           <div class="mt-1" type="date">日期*：</div>
         </div>
-        <input type="date" class="form-control col-8" aria-label="Username" name="date" aria-describedby="basic-addon1">
+        <input type="date" class="form-control col-8" aria-label="Username" name="date" aria-describedby="basic-addon1" required>
       </div>
       <div class="input-group mt-4">
         <div class="input-group-prepend col-2">
           <div class="mt-1">類別*：</div>
         </div>
-        <select class="custom-select col-8" id="inputGroupSelect01" name="category">
+        <select class="custom-select col-8" id="inputGroupSelect01" name="category" required>
           <option selected>類別</option>
           <option value="household">家居物業</option>
           <option value="transport">交通出行</option>
@@ -35,8 +35,8 @@
         <div class="input-group-prepend col-2">
           <div class="mt-1">金額*：</div>
         </div>
-        <input type="text" class="form-control col-8" placeholder="金額" name="amount" aria-label="Username"
-          aria-describedby="basic-addon1">
+        <input type="number" class="form-control col-8" placeholder="金額" name="amount" aria-label="Username"
+          aria-describedby="basic-addon1" required>
       </div>
     </div>
     <div class="mt-4" style="text-align: center; text-align: end">
