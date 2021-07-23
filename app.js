@@ -7,7 +7,7 @@ require('./config/mongoose')
 
 const helpers = handlebarsHelpers()
 const app = express()
-const port = 3000
+const PORT = process.env.PORT || 3000
 
 app.engine('handlebars', exphbs({
   defaultLayout: 'main', helpers: helpers
@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 app.use(routes)
 
-app.listen(port, () => {
+app.listen(PORT, () => {
   console.log(`Express is listening on localhost: ${port}`)
 })
 
