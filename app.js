@@ -5,6 +5,7 @@ const routes = require('./routes')
 const handlebarsHelpers = require('handlebars-helpers')
 const methodOverride = require('method-override')
 require('./config/mongoose')
+const usePassport = require('./config/passport')
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
@@ -26,6 +27,7 @@ app.use(session({
 }))
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
+usePassport(app)
 app.use(routes)
 
 app.listen(PORT, () => {
