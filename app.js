@@ -1,9 +1,13 @@
 const express = require('express')
+const session = require('express-session')
 const exphbs = require('express-handlebars')
 const routes = require('./routes')
 const handlebarsHelpers = require('handlebars-helpers')
 const methodOverride = require('method-override')
 require('./config/mongoose')
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
 
 const helpers = handlebarsHelpers()
 const app = express()
@@ -15,6 +19,11 @@ app.engine('handlebars', exphbs({
 
 app.set('view engine', 'handlebars')
 
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: true 
+}))
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 app.use(routes)
