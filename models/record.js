@@ -17,6 +17,12 @@ const recordSchema = new mongoose.Schema({
   "amount":{
     type: String,
     required: true
+  },
+  "userId":{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    index: true,
+    required: true
   }
 })
 
