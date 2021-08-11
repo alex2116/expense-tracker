@@ -6,6 +6,9 @@ const recordSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  "merchant": {
+    type: String
+  },
   "category":{
     type: String,
     required: true
