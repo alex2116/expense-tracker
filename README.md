@@ -1,10 +1,14 @@
 # 支出記帳網頁
 簡易支出記帳網站，可以新增、刪除、編輯個別項目。也可以依分類查詢記帳項目。
+測試帳號：root@example.com
+測試密碼：12345678
 
 ## 產品功能
 - 查看所有記帳項目
 - 查看總支出金額
-- 查看不同類別支出項目
+- 查看特定類別支出項目
+- 查看特定月份的支出
+- 同時查看特定月份及類別之支出
 - 更改支出資料
 
 ### 使用工具
@@ -18,12 +22,17 @@
 
 ### 安裝步驟
 
-- 確認開發環境
-- 打開terminal，Clone 此專案至本機電腦
-- 進入本專案資料夾 cd <資料夾名稱>
-- 安裝npm，輸入 $ npm install
-- 安裝nodemon套件，輸入 $ npm install -g nodemon
-- 安裝模板引擎，輸入 $ npm i express-handlebars
-- 安裝handlebars-helpers，輸入 $ npm i --save handlebars-helpers
-- 執行檔案 $ npm run dev
-- 執行種子 $ npm run seed
+- 藉由git clone將專案下載至本地
+https://github.com/alex2116/expense-tracker.git
+- 進入專案資料夾
+cd expense-tracker
+- 安裝套件
+npm install
+- 引入環境變數
+- 將 .env.example 改為 .env
+- 加入種子資料
+npm run seed
+- 啟動網頁伺服器
+npm run dev
+- 出現下列訊息，表示啟動成功，可點選連結開啟網頁
+Server is running on http://localhost:3000
