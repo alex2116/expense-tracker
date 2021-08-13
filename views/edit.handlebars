@@ -6,26 +6,30 @@
     </div>
     <div>
       <div class="input-group mt-4">
-        <div class="input-group-prepend col-2">
+        <div class="input-group-prepend col-3" style="
+    justify-content: space-around;" >
           <div class="mt-1">名稱*：</div>
         </div>
         <input type="text" class="form-control col-8" aria-label="Username" name="name" aria-describedby="basic-addon1" value="{{record.name}}" required>
       </div>
       <div class="input-group mt-4">
-        <div class="input-group-prepend col-2">
+        <div class="input-group-prepend col-3" style="
+    justify-content: space-around;">
           <div class="mt-1">商家：</div>
         </div>
         <input type="text" class="form-control col-8" placeholder="商家" name="merchant" aria-label="Username"
-          aria-describedby="basic-addon1">
+          aria-describedby="basic-addon1" value="{{record.merchant}}">
       </div>
       <div class="input-group mt-4">
-        <div class="input-group-prepend col-2">
+        <div class="input-group-prepend col-3" style="
+    justify-content: space-around;">
           <div class="mt-1" type="date">日期*：</div>
         </div>
         <input type="date" class="form-control col-8" aria-label="Username" name="date" aria-describedby="basic-addon1" value="{{record.date}}" required>
       </div>
       <div class="input-group mt-4">
-        <div class="input-group-prepend col-2">
+        <div class="input-group-prepend col-3" style="
+    justify-content: space-around;">
           <div class="mt-1">類別*：</div>
         </div>
         <select class="custom-select col-8" id="inputGroupSelect01" name="category" required>
@@ -36,7 +40,8 @@
         </select>
       </div>
       <div class="input-group mt-4">
-        <div class="input-group-prepend col-2">
+        <div class="input-group-prepend col-3" style="
+    justify-content: space-around;">
           <div class="mt-1">金額*：</div>
         </div>
         <input type="number" class="form-control col-8" placeholder="金額" aria-label="Username" name="amount" aria-describedby="basic-addon1" value="{{record.amount}}" required>

@@ -14,14 +14,14 @@ router.get('/', async(req, res) => {
     const recordsOfuser = await Record.find({ userId }).lean()  
     const records = []   
     
-    if (category && month) {                     //如果兩個都有
+    if (category && month !== null) {                     //如果兩個都有
       const recordsFindByCategory = recordsOfuser.filter(record => record.category.includes(category))
       const recordsFindByBoth = recordsFindByCategory.filter(record => record.date.includes(month))
       recordsFindByBoth.forEach(record => {
         record.iconClass = getIconClassName(record.category, categories)
         records.push(record)
       })
-    } else if (month) {                         //如果只有月份
+    } else if (month !== null) {                         //如果只有月份
       const recordsFindByMonth = recordsOfuser.filter(record => record.date.includes(month))
       recordsFindByMonth.forEach(record => {
         record.iconClass = getIconClassName(record.category, categories)

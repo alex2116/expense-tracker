@@ -1,18 +1,26 @@
 <div class="container">
   <div class="input-group filter-category container-fluid col-12 mt-4" style="justify-content: space-around;">
-    <form class="col-8" action="/filter" method="GET"> 
-    <div> 
-      <select class="form-control" id="record-category" name="category" onchange="this.form.submit()" style="text-align-last: center;">
-        <option disabled selected>類別</option>
-        {{#each categories}}
-        <option value="{{ this.category }}" name="{{ this.category}}" {{#is this.category ../category }}selected{{/is}} >{{ this.category_cn }}</option>
-        {{/each}}
-      </select> 
-      <div>
-      <input class="form-control mt-2" type="month" id="month" name="month" min="2018-01" onchange="this.form.submit()" value="{{month}}">
-      </div>
+    <div class="col-8">
+     <form class="" action="/filter" method="GET"> 
+        <div class="col-12">
+        <select class="form-control" id="record-category" name="category" onchange="this.form.submit()" style="text-align-last: center;">
+          <option disabled selected>類別</option>
+          {{#each categories}}
+          <option value="{{ this.category }}" name="{{ this.category}}" {{#is this.category ../category }}selected{{/is}} >{{ this.category_cn }}</option>
+          {{/each}}
+        </select> 
+        </div>
+        <div class="col-12 mt-2"style="display: flex;">
+          <input class="form-control col-8" type="month" id="month" name="month" min="2018-01" onchange="this.form.submit()" value="{{month}}" style="text-align-last: center;">
+          <button class="btn btn-outline-danger ml-1"onclick="javascript:month.value=''">X</button>
+          <a href="/" class="col-3 ml-2 " style="line-height: 38px;">清空條件</a>
+        </div>           
+      </form>
     </div>
-    </form>
+      
+    
+    
+    
   </div>  
  
   <div class="m-2 mt-4 col-12">
@@ -43,10 +51,10 @@
             {{this.date}}
           </span>
         </div>
-      </td>      
+      </td>          
       <td class="col-2" style="text-align: start; vertical-align: middle">
-        商家：{{this.merchant}}
-      </td>
+        {{#if this.merchant}}商家：{{this.merchant}}{{/if}}
+      </td>      
       <td class="col-1" style="text-align: end; vertical-align: middle">
         {{this.amount}}
       </td>
