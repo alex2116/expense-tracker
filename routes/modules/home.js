@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
           records.forEach(record => {
             record.iconClass = getIconClassName(record.category, categories)
           })
-          res.render('index', { records, totalAmount, categories })
+          res.render('index', { records, totalAmount, categories})
         })
         .catch(error => console.log(error))
     })

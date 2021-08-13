@@ -1,17 +1,20 @@
 <div class="container">
-
-  <div class="dropdown mt-5 col-12" style="width: 100%;">
-    <button class="btn btn-outline-info dropdown-toggle" type="button" id="dropdownMenuButton"
-      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 100%;">
-      類別
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="width: 100%;">
-      {{#each categories}}
-      <li><a class="dropdown-item" href="/filter/{{ this.category }}">{{ this.category_cn }}</a></li>
-      {{/each}}
-      <li><a class="dropdown-item" href="/">全部</a></li>
-    </ul>
-  </div>
+  <div class="input-group filter-category container-fluid col-12 mt-4" style="justify-content: space-around;">
+    <form class="col-8" action="/filter" method="GET"> 
+    <div> 
+      <select class="form-control" id="record-category" name="category" onchange="this.form.submit()" style="text-align-last: center;">
+        <option disabled selected>類別</option>
+        {{#each categories}}
+        <option value="{{ this.category }}" name="{{ this.category}}" {{#is this.category ../category }}selected{{/is}} >{{ this.category_cn }}</option>
+        {{/each}}
+      </select> 
+      <div>
+      <input class="form-control mt-2" type="month" id="month" name="month" min="2018-01" onchange="this.form.submit()" value="{{month}}">
+      </div>
+    </div>
+    </form>
+  </div>  
+ 
   <div class="m-2 mt-4 col-12">
     <div>總支出</div>
     <div style="text-align: end; display: flex; flex-direction: column; margin-right:14px">
