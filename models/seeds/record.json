@@ -4,6 +4,7 @@
       "name": "expense-1",
       "category": "household",
       "date": "2021-06-19",
+      "merchant": "B&Q",
       "amount": 100
     },
     {
