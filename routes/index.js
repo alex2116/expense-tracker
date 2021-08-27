@@ -8,7 +8,6 @@ const users = require('./modules/users')
 const { authenticator } = require('../middleware/auth')
 
 
-router.use('/filter', authenticator, filter)
 router.use('/record', authenticator, record)
 router.use('/users', users)
 router.use('/', authenticator, home)
